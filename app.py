@@ -30,14 +30,5 @@ def login():
                            error=error, username=username)
 
 
-@app.route('/admin')
-@app.route('/admin/')
-@app.route('/login')
-@app.route('/login/')
-def redirect_login():
-    """Redirect to the login page."""
-    return redirect(url_for('.login'), code=301)
-
-
 if __name__ == '__main__':
     app.run(debug=True)
