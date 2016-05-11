@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<title>{{ title }} &lsaquo; Log In</title>
+	<link rel='stylesheet' href='{{ url_for('static', filename='wpcom.css') }}' type='text/css' />
+<link rel='stylesheet' id='all-css-2' href='{{ url_for('static', filename='all2.css') }}' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038' type='text/css' media='all' />
+	<style type="text/css">
+		body, form .input {
+			font-family: "Open Sans", "Helvetica Neue", "Arial", sans;
+		}
+
+		body.login.recover-password,
+		body.login.recover-password-success {
+			height: auto;
+			min-height: 100%;
+		}
+
+
+		#recovery {
+			padding-bottom: 24px;
+		}
+
+		.recover-password #login_error {
+			width: auto;
+		}
+
+		#login_error ul {
+			list-style: square outside none;
+			margin-left: 15px;
+		}
+
+		#login_error ol {
+					margin-left: 25px;
+				}
+
+		.message ol {
+					margin: 10px 0px 10px 20px;
+				}
+
+		#login_error h2, #recovery h2 {
+			padding-bottom: 10px;
+		}
+
+		#login_error h3 {
+			padding-bottom: 5px;
+		}
+
+		#login_error h3 {
+			margin-top: 10px;
+		}
+
+		.recover-password #recovery h2 {
+			margin-bottom: 5px;
+		}
+		.recover-password-success #recovery h2 {
+			margin-bottom: .5em;
+		}
+
+		.recover-password #recovery p {
+			line-height: 1.6;
+			padding-bottom: 10px;
+			border-top: none;
+		}
+		.recover-password-success #recovery p {
+			line-height: 1.6;
+			padding-bottom: 1em;
+		}
+
+		.recovery-stage {
+			margin: 14px 0px 27px 0px;
+		}
+		.login .recovery-stage input[type="text"] {
+			margin-bottom: 5px;
+		}
+
+		.recovery-ownership-message {
+			background-color: #fff;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+			padding: 7px 15px 0 15px;
+			margin: 1em 0;
+			background: #ffffe0;
+		}
+
+		.recovery-error-message {
+			display: none;
+			background-color: #f1831e;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+			box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+			padding: 7px 15px 0 15px;
+			margin: 1em 0;
+			background: #f1831e;
+		}
+
+		.recover-password #recovery textarea {
+			width: 100%;
+			box-sizing: border-box;
+			-moz-box-sizing:border-box;
+			-webkit-box-sizing:border-box;
+			-ms-box-sizing:border-box;
+		}
+
+		.recover-password #recovery .recovery-ownership-title {
+			position: relative;
+			padding-bottom: 0;
+		}
+
+		.recovery-ownership-help {
+			float: right;
+			font-size: 11px;
+			margin-top: -10px;
+			margin-bottom: 5px;
+		}
+
+		.recovery-ownership {
+			clear: both;
+		}
+
+		.recovery-ownership-help {
+			margin: 3px 0 0 0;
+		}
+
+		.recovery-ownership-help-text {
+			display: none;
+			position: absolute;
+				top: 25px;
+				right: 0;
+			z-index: 100;
+			border: 1px solid #e6db55;
+			background-color: lightyellow;
+			width: 250px;
+			padding: 8px;
+			box-shadow: 0 4px 10px -1px rgba(200, 200, 200, 0.7);
+		}
+
+		.account-recovery-link {
+			margin-bottom: 16px;
+		}
+
+		.login #nosms {
+			font-size: 13px;
+			padding: 0 24px 0;
+			margin: 16px 0 0 0;
+		}
+	</style>
+	<meta name='robots' content='noindex,follow' />
+	</head>
+	<body class="login login-action-login wp-core-ui  locale-en">
+	<div id="login">
+		<h1><a href="#" title="WordPress.com" tabindex="-1">{{ title }}</a></h1>
+{%- if error %}
+		<div id="login_error">	<strong>ERROR</strong>: The password you entered for the email or username <strong>{{ username }}</strong> is incorrect. <a href="#">Lost your password?</a><br />
+</div>
+{% endif %}
+<form name="loginform" id="loginform" action="/wp-login.php" method="post">
+	<p>
+		<label for="user_login">Username or Email<br />
+		<input type="text" name="log" id="user_login" class="input" value="{{ username }}" size="20" /></label>
+	</p>
+	<p>
+		<label for="user_pass">Password<br />
+		<input type="password" name="pwd" id="user_pass" class="input" value="" size="20" /></label>
+	</p>
+		<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  checked='checked' /> Stay signed in</label></p>
+	<p class="submit">
+		<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+		<input type="hidden" name="testcookie" value="1" />
+	</p>
+</form>
+
+<p id="nav">
+<a class="click-register" href="#">Register</a> | 	<a href="#">Lost your password?</a>
+</p>
+
+  	<p id="backtoblog">
+  		<a href="https://test.wordpress.com/" title="Are you lost?">Return to {{ title }}</a>	</p>
+
+  	</div>
+		<div class="clear"></div>
+	</body>
+	</html>
