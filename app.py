@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """"""
 from flask import Flask, Response, render_template, request, redirect, url_for
+import os
 
 
 app = Flask(__name__)
-app.config['TITLE'] = 'Testing WordPress.com'
+app.config['TITLE'] = os.environ.get('TITLE', 'WordPress.com')
 app.config['JUSTICE_URL'] = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
 app.config['JUSTICE_MSG'] = 'Forgive me father, for I have snooped.\n'
 app.config['SNOOP_CHARS'] = '\'"\r\n\b\t\x1a\\%_<>'
